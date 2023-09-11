@@ -17,6 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
+	public static BasePage getBasePageObject() {
+		return new BasePage();
+	}
+	
 	public void openPageUrl(WebDriver driver, String getUrl) {
 		driver.get(getUrl);
 	}
@@ -314,6 +318,10 @@ public class BasePage {
 		expliciWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(xpathLocator)));
 	}
 
+	public void waitForElementClickable(WebDriver driver, String xpathLocator) {
+		WebDriverWait expliciWait = new WebDriverWait(driver, shortTimeout);
+		expliciWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
+	}
 	private long longTimeout= 30;
 	private long shortTimeout= 5;
 	
