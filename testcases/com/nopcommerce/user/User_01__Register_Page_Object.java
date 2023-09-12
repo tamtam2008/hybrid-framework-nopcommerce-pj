@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class User_02__Register_Page_Object {
+public class User_01__Register_Page_Object {
 	
 	private WebDriver driver;
 	private String emailAddress, firstName, lastName, password;
@@ -100,6 +100,12 @@ public class User_02__Register_Page_Object {
 		
 		System.out.println("Register Page - Step04: Verify success message displayed");
 		Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+	
+//		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {
+//			homePage.clickToLogoutLink();
+//		}else {
+//			System.out.println("Skipped Logout button");
+//		}
 	}
 
 	@Test

@@ -18,4 +18,21 @@ public class HomePageObject extends BasePage {
 		
 	}
 
+	public void clickToLoginLink() {
+		waitForElementVisible(driver, HomePageUI.LOGIN_LINK);
+		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		
+	}
+
+	public void clickToLogoutLink() {
+		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
+		clickToElement(driver, HomePageUI.LOGOUT_LINK);
+	}
+
+//	public String getTitleHomepage() {
+//		return getTitle(driver);
+//	}
+
+
+
 }
