@@ -5,33 +5,37 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import commons.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class User_02_Login {
+public class User_02_Login extends BaseTest {
 
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 	private String existingEmail, password, invalidEmail, notFoundEmail;
-	private String projectPath = System.getProperty("user.dir");
 
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass(String browserName) {
 
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-
+		driver = getBrowserDriver(browserName);
+		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 		homePage = new HomePageObject(driver);
+		driver.manage().window().maximize();
 		invalidEmail = "123456@$^^$$";
 		existingEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
 		notFoundEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
