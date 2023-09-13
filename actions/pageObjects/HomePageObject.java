@@ -29,6 +29,11 @@ public class HomePageObject extends BasePage {
 		clickToElement(driver, HomePageUI.LOGOUT_LINK);
 	}
 
+	public boolean isMyAccountLinkDisplay() {
+		waitForElementVisible(driver, HomePageUI.MYACCOUNT_LINK);
+		return isElementDisplayed(driver, HomePageUI.MYACCOUNT_LINK);
+	}
+
 //	public String getTitleHomepage() {
 //		return getTitle(driver);
 //	}

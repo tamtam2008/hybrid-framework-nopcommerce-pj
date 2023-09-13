@@ -20,119 +20,132 @@ public class User_02_Login {
 	private HomePageObject homePage;
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
-	private String username, password;
+	private String existingEmail, password, invalidEmail, notFoundEmail;
 	private String projectPath = System.getProperty("user.dir");
-	
+
 	@BeforeClass
 	public void beforeClass() {
 
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		homePage = new HomePageObject(driver);
-		loginPage = new LoginPageObject(driver);
-		registerPage = new RegisterPageObject(driver);
-		
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		username = "automationfc" + randomFakeNumber() + ".vn@gmail.com";
-		password="123456";
-		
-	}
-	
-	@Test
-	public void TC_01_Login_Empty_Data() {
-		
-		homePage.clickToLoginLink();
-		
-		loginPage.clickToLoginButton();
-		
-		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Please enter your email");
-	} 
-	
-	@Test
-	public void TC_02_Invalid_Email() {
-		homePage.clickToLoginLink();
-		
-		loginPage.inputToUsername("123456@$^^$$");
-		loginPage.inputToPassword(password);
-		
-		loginPage.clickToLoginButton();
-		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Wrong email");
-	} 
-	
-	@Test
-	public void TC_03_Login_With_Email_Not_Exist() {
-		homePage.clickToLoginLink();
-		
-		loginPage.inputToUsername("tam.nguyen1234@mailinator.com");
-		loginPage.inputToPassword(password);
-		
-		loginPage.clickToLoginButton();
-		
-		System.out.println(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent"));
-		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(), "Login was unsuccessful. Please correct the errors and try again.No customer account found");
-		
-	} 
-	
-	@Test
-	//recheck- neet to extends acc created of User_01__Register_Page_Object
-	public void TC_04_Login_With_Email_Existed_And_No_Password() {
-		//create acc (just temporate)
+		homePage = new HomePageObject(driver);
+		invalidEmail = "123456@$^^$$";
+		existingEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
+		notFoundEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
+		password = "123456";
+
+		// Pre-condition
+		// create acc (just temporate)
 		homePage.clickToRegisterLink();
 
+		registerPage = new RegisterPageObject(driver);
 		registerPage.clickToGender();
 		registerPage.inputToFirstnameTextbox("tam");
 		registerPage.inputToLastNameTextbox("nguyen");
-		registerPage.inputToEmailTextbox(username);
+		registerPage.inputToEmailTextbox(existingEmail);
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(password);
 		registerPage.clickToRegisterButton();
 		sleepInSecond(2);
 		
+		//homePage.clickToLogoutLink();
+
+	}
+
+	@Test
+	public void Login_01_Empty_Data() {
+
+		homePage.clickToLoginLink();
+
+		loginPage = new LoginPageObject(driver);
+		loginPage.clickToLoginButton();
+
+		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Please enter your email");
+	}
+
+	@Test
+	public void Login_02_Invalid_Email() {
+		homePage.clickToLoginLink();
+		loginPage = new LoginPageObject(driver);
+
+		loginPage.inputToUsername(invalidEmail);
+		loginPage.inputToPassword(password);
+
+		loginPage.clickToLoginButton();
+		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Wrong email");
+	}
+
+	@Test
+	public void Login_03_With_Email_Not_Exist() {
+		homePage.clickToLoginLink();
+		loginPage = new LoginPageObject(driver);
+
+		loginPage.inputToUsername(notFoundEmail);
+		loginPage.inputToPassword(password);
+
+		loginPage.clickToLoginButton();
+
+		System.out.println(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent"));
+		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
+				"Login was unsuccessful. Please correct the errors and try again.No customer account found");
+
+	}
+
+	@Test
+	// recheck- neet to extends acc created of User_01__Register_Page_Object
+	public void Login_04_With_Email_Existed_And_No_Password() {
+
 //		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {
 //			homePage.clickToLogoutLink();
 //		}
-		
-		
-		//login
+
+		// login
 		homePage.clickToLoginLink();
-		sleepInSecond(1);
-		loginPage.inputToUsername(username);
-		sleepInSecond(1);
+		loginPage = new LoginPageObject(driver);
+	
+		loginPage.inputToUsername(existingEmail);
 		loginPage.clickToLoginButton();
 		sleepInSecond(2);
 
-		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(), "Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
-	} 
-	
+		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
+				"Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
+	}
+
 	@Test
-	public void TC_05_Login_With_Email_Existed_And_Wrong_Password() {
+	public void Login_05_With_Email_Existed_And_Wrong_Password() {
 
 		homePage.clickToLoginLink();
-		
-		loginPage.inputToUsername(username);
+		loginPage = new LoginPageObject(driver);
+
+		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword("123459");
-		
+
 		loginPage.clickToLoginButton();
-		
-		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(), "Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
-		
-	} 
-	
+
+		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
+				"Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
+
+	}
+
 	@Test
-	public void TC_06_Login_With_Email_Existed_And_Correct_Password() {
-		
+	public void Login_06_With_Email_Existed_And_Correct_Password() {
+
 		homePage.clickToLoginLink();
-		
-		loginPage.inputToUsername(username);
+		loginPage = new LoginPageObject(driver);
+
+		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword(password);
-		
+
 		loginPage.clickToLoginButton();
 		sleepInSecond(3);
 
 		Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
-	} 
-	
+		Assert.assertTrue(homePage.isMyAccountLinkDisplay());
+	}
+
 	@AfterClass
 	public void afterClass() {
 
@@ -146,7 +159,7 @@ public class User_02_Login {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int randomFakeNumber() {
 		Random rand = new Random();
 		return rand.nextInt(9999);
