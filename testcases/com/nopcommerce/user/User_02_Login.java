@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObject;
 
 public class User_02_Login extends BaseTest {
@@ -34,7 +35,8 @@ public class User_02_Login extends BaseTest {
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
+//		homePage = new HomePageObject(driver);
 		driver.manage().window().maximize();
 		invalidEmail = "123456@$^^$$";
 		existingEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
@@ -42,10 +44,8 @@ public class User_02_Login extends BaseTest {
 		password = "123456";
 
 		// Pre-condition
-		// create acc (just temporate)
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 
-		registerPage = new RegisterPageObject(driver);
 		registerPage.clickToGender();
 		registerPage.inputToFirstnameTextbox("tam");
 		registerPage.inputToLastNameTextbox("nguyen");
@@ -54,7 +54,6 @@ public class User_02_Login extends BaseTest {
 		registerPage.inputToConfirmPasswordTextbox(password);
 		registerPage.clickToRegisterButton();
 		sleepInSecond(2);
-		
 		//homePage.clickToLogoutLink();
 
 	}
@@ -62,9 +61,8 @@ public class User_02_Login extends BaseTest {
 	@Test
 	public void Login_01_Empty_Data() {
 
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 
-		loginPage = new LoginPageObject(driver);
 		loginPage.clickToLoginButton();
 
 		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Please enter your email");
@@ -72,8 +70,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_02_Invalid_Email() {
-		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homePage.clickToLoginLink();
 
 		loginPage.inputToUsername(invalidEmail);
 		loginPage.inputToPassword(password);
@@ -84,8 +81,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_03_With_Email_Not_Exist() {
-		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homePage.clickToLoginLink();
 
 		loginPage.inputToUsername(notFoundEmail);
 		loginPage.inputToPassword(password);
@@ -99,16 +95,13 @@ public class User_02_Login extends BaseTest {
 	}
 
 	@Test
-	// recheck- neet to extends acc created of User_01__Register_Page_Object
 	public void Login_04_With_Email_Existed_And_No_Password() {
 
 //		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {
 //			homePage.clickToLogoutLink();
 //		}
 
-		// login
-		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homePage.clickToLoginLink();
 	
 		loginPage.inputToUsername(existingEmail);
 		loginPage.clickToLoginButton();
@@ -121,8 +114,7 @@ public class User_02_Login extends BaseTest {
 	@Test
 	public void Login_05_With_Email_Existed_And_Wrong_Password() {
 
-		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homePage.clickToLoginLink();
 
 		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword("123459");
@@ -137,13 +129,12 @@ public class User_02_Login extends BaseTest {
 	@Test
 	public void Login_06_With_Email_Existed_And_Correct_Password() {
 
-		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homePage.clickToLoginLink();
 
 		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword(password);
 
-		loginPage.clickToLoginButton();
+		homePage =loginPage.clickToLoginButton();
 		sleepInSecond(3);
 
 		Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");

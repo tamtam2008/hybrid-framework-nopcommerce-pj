@@ -42,7 +42,8 @@ public class BaseTest {
 		}
 		else if (browserName.equals("h-chrome")) {
 			if (osName.contains("Mac OS")) {
-				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+//				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+				WebDriverManager.chromedriver().setup();
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				options.addArguments("window-size=1920×1080");
@@ -56,14 +57,15 @@ public class BaseTest {
 			}
 			
 		}else if (browserName.equals("chrome")) {
-			if (osName.contains("Mac OS")) {
-				System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-				//WebDriverManager.chromedriver().setup();
+			//if (osName.contains("Mac OS")) {
+				//System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-			} else {
-				System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\\\chromedriver.exe");
-				driver = new ChromeDriver();
-			}
+			//} else {
+				//System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\\\chromedriver.exe");
+//				WebDriverManager.chromedriver().setup();
+//				driver = new ChromeDriver();
+//			}
 			
 		} else {
 			throw new RuntimeException("Browser name invalid");

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import commons.BaseTest;
 import pageObjects.HomePageObject;
+import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
@@ -29,9 +30,9 @@ public class User_01__Register_Page_Object extends BaseTest {
 
 		driver = getBrowserDriver(browserName);
 		
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
-		
+		homePage = PageGeneratorManager.getHomePage(driver);
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 		
@@ -45,7 +46,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_01_Empty_Data() {
 
 		System.out.println("Register_01 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 		
 		System.out.println("Register_01 - Step02: Click to Register button");
 		registerPage.clickToRegisterButton();
@@ -62,7 +63,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_02_Invalid_Email() {
 
 		System.out.println("Register_02 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 		
 		System.out.println("Register_02 - Step02: Input to require fields");
 		registerPage.clickToGender();
@@ -83,7 +84,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_03_Success() {
 		
 		System.out.println("Register_03 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 
 		System.out.println("Register_03 - Step02: Input to require fields");
 		registerPage.clickToGender();
@@ -110,7 +111,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_04_Existing_Email() {
 
 		System.out.println("Register_04 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 		
 		System.out.println("Register_04 - Step02: Input to require fields");
 		registerPage.clickToGender();
@@ -132,7 +133,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_05_Password_Less_Than_6Chars() {
 		
 		System.out.println("Register_05 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 
 		System.out.println("Register_05 - Step02: Input to require fields");
 		registerPage.clickToGender();
@@ -154,7 +155,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 	public void Register_06_Invalid_Confirm_Password() {
 		
 		System.out.println("Register_06 - Step01: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 
 		System.out.println("Register_06 - Step02: Input to require fields");
 		registerPage.clickToGender();
