@@ -15,6 +15,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.AddressInfoPageObject;
+import pageObjects.ChangePasswordInfoPageObject;
+import pageObjects.CustomerInfoPageObject;
+import pageObjects.MyProductReviewsPageObject;
+import pageObjects.PageGeneratorManager;
+import pageUIs.BasePageUI;
+
 public class BasePage {
 
 	public static BasePage getBasePageObject() {
@@ -145,6 +152,11 @@ public class BasePage {
 	public void selectItemInDefaultDropdown(WebDriver driver, String xpathLocator, String textItem) {
 		Select select = new Select(getWebElement(driver, xpathLocator));
 		select.selectByValue(textItem);
+	}
+	
+	public void selectByVisibleTextItemInDefaultDropdown(WebDriver driver, String xpathLocator, String textVisibleItem) {
+		Select select = new Select(getWebElement(driver, xpathLocator));
+		select.selectByVisibleText(textVisibleItem);
 	}
 	
 	public String getSelectedItemInDefaultDropdown(WebDriver driver, String xpathLocator) {
@@ -322,6 +334,31 @@ public class BasePage {
 		WebDriverWait expliciWait = new WebDriverWait(driver, shortTimeout);
 		expliciWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
 	}
+	
+	public AddressInfoPageObject openAddressPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK);
+		clickToElement(driver, BasePageUI.ADDRESS_LINK);
+		return PageGeneratorManager.getAddressPage(driver);
+	}
+	
+	public ChangePasswordInfoPageObject openChangePasswordPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.CHANGE_PASSWORD_LINK);
+		clickToElement(driver, BasePageUI.CHANGE_PASSWORD_LINK);
+		return PageGeneratorManager.getChangePasswordPage(driver);
+	}
+	
+	public CustomerInfoPageObject openCustomerInfoPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.CUSTOMER_INFO_LINK);
+		clickToElement(driver, BasePageUI.CUSTOMER_INFO_LINK);
+		return PageGeneratorManager.getCustomerInfoPage(driver);
+	} 
+	
+	public MyProductReviewsPageObject openMyProductReviewsPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.PRODUCT_REVIEW_LINK);
+		clickToElement(driver, BasePageUI.PRODUCT_REVIEW_LINK);
+		return PageGeneratorManager.getMyProductReviewsPage(driver);
+	} 
+	
 	private long longTimeout= 30;
 	private long shortTimeout= 5;
 	
