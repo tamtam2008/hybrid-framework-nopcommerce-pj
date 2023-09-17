@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce.user;
 
 public class CustomerInfoUI {
 
@@ -8,7 +8,9 @@ public class CustomerInfoUI {
 	public static final String LAST_NAME_FIELD = "//input[@id='LastName']";
 	public static final String DAY_OF_BIRTH = "//select[@name='DateOfBirthDay']";
 	public static final String MONTH_OF_BIRTH = "//select[@name='DateOfBirthMonth']";
+	public static final String VERIFY_MONTH_OF_BIRTH = "//select[@name='DateOfBirthMonth']/option[text()='September']";
 	public static final String YEAR_OF_BIRTH = "//select[@name='DateOfBirthYear']";
+	public static final String VERIFY_YEAR_OF_BIRTH = "//select[@name='DateOfBirthYear']/option[text()='2000']";
 	public static final String EMAIL_FIELD = "//input[@id='Email']";
 	public static final String COMPANY_NAME_FIELD = "//input[@id='Company']";
 	public static final String SAVE_BUTTON = "//button[@id='save-info-button']";

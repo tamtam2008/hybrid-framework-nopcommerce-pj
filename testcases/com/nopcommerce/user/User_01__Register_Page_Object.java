@@ -3,9 +3,9 @@ package com.nopcommerce.user;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopCommerce.portal.UserHomePageObject;
+import pageObjects.nopCommerce.portal.UserRegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -21,8 +21,8 @@ public class User_01__Register_Page_Object extends BaseTest {
 	
 	private WebDriver driver;
 	private String emailAddress, firstName, lastName, password;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -30,11 +30,8 @@ public class User_01__Register_Page_Object extends BaseTest {
 
 		driver = getBrowserDriver(browserName);
 		
-		homePage = PageGeneratorManager.getHomePage(driver);
-		registerPage = PageGeneratorManager.getRegisterPage(driver);
-
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("https://demo.nopcommerce.com/");
+		homePage = PageGeneratorManager.getUserHomePage(driver);
+		registerPage = PageGeneratorManager.getUserRegisterPage(driver);
 		
 		emailAddress = "tam.tam" + randomFakeNumber() + "@mailinator.com";
 		firstName="Tam";

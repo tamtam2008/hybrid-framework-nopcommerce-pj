@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce.user;
 
 public class BasePageUI {
 
@@ -6,4 +6,6 @@ public class BasePageUI {
 	public static final String CHANGE_PASSWORD_LINK = "//li[contains(@class, 'change-password')]//a[text()='Change password']";
 	public static final String CUSTOMER_INFO_LINK = "//li[contains(@class, 'customer-info')]//a[text()='Customer info']";
 	public static final String PRODUCT_REVIEW_LINK = "//li[contains(@class, 'customer-reviews')]//a[text()='My product reviews']";
+	public static final String LOGOUT_LINK_USER = "//a[@class='ico-logout']";
+	public static final String LOGOUT_LINK_ADMIN = "//div[@id='navbarText']//a[text()='Logout']";
 }

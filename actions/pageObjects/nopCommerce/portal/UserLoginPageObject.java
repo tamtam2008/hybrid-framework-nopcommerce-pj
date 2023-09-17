@@ -1,23 +1,24 @@
-package pageObjects;
+package pageObjects.nopCommerce.portal;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.LoginPageUI;
+import commons.PageGeneratorManager;
+import pageUIs.nopCommerce.user.LoginPageUI;
 
-public class LoginPageObject extends BasePage {
+public class UserLoginPageObject extends BasePage {
 	
 	private WebDriver driver;
 
-	public LoginPageObject(WebDriver driver) {
+	public UserLoginPageObject(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}
 
-	public HomePageObject clickToLoginButton() {
+	public UserHomePageObject clickToLoginButton() {
 		waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
-		return PageGeneratorManager.getHomePage(driver);
+		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
 	public String getUsernameErrorMessage() {
@@ -41,5 +42,10 @@ public class LoginPageObject extends BasePage {
 		
 	}
 	
+	public UserHomePageObject loginAsUser(String emailUser, String passwordUser) {
+		inputToUsername(emailUser);
+		inputToPassword(passwordUser);
+		return clickToLoginButton();
+	} 
 	
 }
