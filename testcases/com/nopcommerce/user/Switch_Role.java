@@ -14,9 +14,12 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import pageObjects.nopCommerce.admin.AdminDashboardPageObject;
 import pageObjects.nopCommerce.admin.AdminLoginPageObject;
+import pageObjects.nopCommerce.portal.UserAddressInfoPageObject;
+import pageObjects.nopCommerce.portal.UserChangePasswordInfoPageObject;
 import pageObjects.nopCommerce.portal.UserCustomerInfoPageObject;
 import pageObjects.nopCommerce.portal.UserHomePageObject;
 import pageObjects.nopCommerce.portal.UserLoginPageObject;
+import pageObjects.nopCommerce.portal.UserMyProductReviewsPageObject;
 import pageObjects.nopCommerce.portal.UserRegisterPageObject;
 
 public class Switch_Role extends BaseTest {
@@ -82,6 +85,31 @@ public class Switch_Role extends BaseTest {
 		sleepInSecond(2);
 		adminLoginPage = adminDashboardPage.openAdminLoginPage(driver);
 	}
+	
+	@Test
+	public void User_03_Dynamic_Page_01() {
+		userHomePage.openPageUrl(driver, GlobalConstants.PORTAL_PAGE_URL);
+		userLoginPage = userHomePage.clickToLoginLink();
+		userHomePage = userLoginPage.loginAsUser(emailUser, passwordUser);
+		userCustomerInfo = userHomePage.clickToMyAccountLink();
+		//
+		userAddressInfoPage = (UserAddressInfoPageObject) userCustomerInfo.openPagesAtMyAccountPageByName(driver, "Addresses");
+		userChangePasswordInfoPage = (UserChangePasswordInfoPageObject) userAddressInfoPage.openPagesAtMyAccountPageByName(driver, "Change password");
+		userMyProductReviewsPageObject = (UserMyProductReviewsPageObject) userChangePasswordInfoPage.openPagesAtMyAccountPageByName(driver, "My product reviews");
+		userCustomerInfo = (UserCustomerInfoPageObject) userMyProductReviewsPageObject.openPagesAtMyAccountPageByName(driver, "Customer info");
+	} 
+	
+	@Test
+	public void User_04_Dynamic_Page_02() {
+		userCustomerInfo.openPagesAtMyAccountPageByName(driver, "Change password");
+		userChangePasswordInfoPage = PageGeneratorManager.getUserChangePasswordPage(driver);
+		
+		userChangePasswordInfoPage.openPagesAtMyAccountPageByName(driver, "Addresses");
+		userAddressInfoPage = PageGeneratorManager.getUserAddressPage(driver);
+		
+		userAddressInfoPage.openPagesAtMyAccountPageByName(driver, "My product reviews");
+		userMyProductReviewsPageObject = PageGeneratorManager.getUserMyProductReviewsPage(driver);
+	} 
 
 	@AfterClass
 	public void afterClass() {
@@ -107,6 +135,9 @@ public class Switch_Role extends BaseTest {
 	private UserLoginPageObject userLoginPage;
 	private UserRegisterPageObject userRegisterPage;
 	private UserCustomerInfoPageObject userCustomerInfo;
+	private UserAddressInfoPageObject userAddressInfoPage;
+	private UserChangePasswordInfoPageObject userChangePasswordInfoPage;
+	private UserMyProductReviewsPageObject userMyProductReviewsPageObject;
 	private AdminLoginPageObject adminLoginPage;
 	private AdminDashboardPageObject adminDashboardPage;
 	private String emailUser, passwordUser, adminUser, adminPassword;

@@ -1,7 +1,5 @@
 package com.nopcommerce.user;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -16,7 +14,6 @@ import pageObjects.nopCommerce.portal.UserChangePasswordInfoPageObject;
 import pageObjects.nopCommerce.portal.UserCustomerInfoPageObject;
 import pageObjects.nopCommerce.portal.UserHomePageObject;
 import pageObjects.nopCommerce.portal.UserLoginPageObject;
-import pageObjects.nopCommerce.portal.UserMyProductReviewsPageObject;
 import pageObjects.nopCommerce.portal.UserRegisterPageObject;
 
 public class User_03_Customer_Info extends BaseTest {
@@ -170,11 +167,6 @@ public class User_03_Customer_Info extends BaseTest {
 		}
 	}
 
-	public int randomFakeNumber() {
-		Random rand = new Random();
-		return rand.nextInt(9999);
-	}
-
 	private WebDriver driver;
 	private UserHomePageObject homePage;
 	private UserLoginPageObject loginPage;
@@ -182,7 +174,6 @@ public class User_03_Customer_Info extends BaseTest {
 	private UserCustomerInfoPageObject customerInfo;
 	private UserAddressInfoPageObject addressInfoPage;
 	private UserChangePasswordInfoPageObject changePasswordPage;
-	private UserMyProductReviewsPageObject myProductReviewsPage;
 	private String email, password, companyName, firstName, lastName, dayOfB, montOfB, yearOfB, emailAddress, country,
 			city, address, postCode, phoneNo, newPw;
 }
