@@ -10,7 +10,11 @@
   </test>-->
   
   <listeners>
+  
   	<listener class-name="commons.MethodListener"/>
+  	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+  	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  	
   </listeners>
   
   <!-- <parameter name="evironment" value="dev"/>-->

@@ -60,14 +60,14 @@ public class User_03_Customer_Info extends BaseTest {
 		loginPage.inputToPassword(password);
 
 		loginPage.clickToLoginButton();
-		Assert.assertTrue(homePage.isMyAccountLinkDisplay());
+		verifyTrue(homePage.isMyAccountLinkDisplay());
 	}
 
 	@Test
 	public void MyAccount_01_Customer_Infor() {
 
 		customerInfo = homePage.clickToMyAccountLink();
-		Assert.assertTrue(customerInfo.isCustomerInfoIsDisplayed());
+		verifyTrue(customerInfo.isCustomerInfoIsDisplayed());
 
 		customerInfo.clickToGenderCheckboxCustomerInfo();
 		customerInfo.inputToFirstNameCustomerInfo(firstName);
@@ -80,15 +80,15 @@ public class User_03_Customer_Info extends BaseTest {
 		customerInfo.scrollToBottomPage(driver);
 		customerInfo.clickToSaveButton();
 
-		Assert.assertTrue(customerInfo.isSuccessMessageDisplay());
-		Assert.assertTrue(customerInfo.isGenderCheckboxSelected());
-		Assert.assertEquals(customerInfo.getFirstNameCustomerInfo("value"), firstName);
-		Assert.assertEquals(customerInfo.getLastNameCustomerInfo("value"), lastName);
-		Assert.assertEquals(customerInfo.getDayOfBirthCustomerInfo("value"), dayOfB);
-		Assert.assertTrue(customerInfo.isMonthOfBirthCustomerInfoDisplayed());
-		Assert.assertTrue(customerInfo.isYearOfBirthCustomerInfoDisplayed());
-		Assert.assertEquals(customerInfo.getEmailCustomerInfo("value"), email);
-		Assert.assertEquals(customerInfo.getCompanyNameCustomerInfo("value"), companyName);
+		verifyTrue(customerInfo.isSuccessMessageDisplay());
+		verifyTrue(customerInfo.isGenderCheckboxSelected());
+		verifyEquals(customerInfo.getFirstNameCustomerInfo("value"), firstName);
+		verifyEquals(customerInfo.getLastNameCustomerInfo("value"), lastName);
+		verifyEquals(customerInfo.getDayOfBirthCustomerInfo("value"), dayOfB);
+		verifyTrue(customerInfo.isMonthOfBirthCustomerInfoDisplayed());
+		verifyTrue(customerInfo.isYearOfBirthCustomerInfoDisplayed());
+		verifyEquals(customerInfo.getEmailCustomerInfo("value"), email);
+		verifyEquals(customerInfo.getCompanyNameCustomerInfo("value"), companyName);
 
 	}
 
@@ -96,7 +96,7 @@ public class User_03_Customer_Info extends BaseTest {
 	public void MyAccount_02_Address_Infor() {
 		addressInfoPage = customerInfo.openAddressPage(driver);
 
-		Assert.assertTrue(addressInfoPage.isAddressInfoHeaderDisplayed());
+		verifyTrue(addressInfoPage.isAddressInfoHeaderDisplayed());
 		addressInfoPage.clickToNewAddressButton();
 
 		addressInfoPage.inputToFirstNameOfAddressInfo(firstName);
@@ -109,25 +109,25 @@ public class User_03_Customer_Info extends BaseTest {
 		addressInfoPage.inputToPhoneNumberOfAddressInfo(phoneNo);
 		
 		addressInfoPage.clickToSaveAddressButton();
-		Assert.assertTrue(addressInfoPage.isSuccessfulMessageCreatedAddressDisplayed());
-		Assert.assertEquals(addressInfoPage.getFullNameAddress(), firstName+" "+lastName);
+		verifyTrue(addressInfoPage.isSuccessfulMessageCreatedAddressDisplayed());
+		verifyEquals(addressInfoPage.getFullNameAddress(), firstName+" "+lastName);
 		String emailVerify = addressInfoPage.getEmailAddress();
 		String phoneVerify = addressInfoPage.getPhoneNumberAddress();
-		Assert.assertTrue(emailVerify.contains(emailAddress));
-		Assert.assertTrue(phoneVerify.contains(phoneNo));
-		Assert.assertEquals(addressInfoPage.getCountryAddress(), country);
+		verifyTrue(emailVerify.contains(emailAddress));
+		verifyTrue(phoneVerify.contains(phoneNo));
+		verifyEquals(addressInfoPage.getCountryAddress(), country);
 	}
 
 	@Test
 	public void MyAccount_03_Change_Password() {
 		changePasswordPage = addressInfoPage.openChangePasswordPage(driver);
-		Assert.assertTrue(changePasswordPage.getChangePasswordHeader());
+		verifyTrue(changePasswordPage.getChangePasswordHeader());
 		
 		changePasswordPage.inputForOldPassword(password);
 		changePasswordPage.inputForNewPassword(newPw);
 		changePasswordPage.inputForConfirmPassword(newPw);
 		changePasswordPage.clickToSaveChangePassword();
-		Assert.assertTrue(changePasswordPage.getTextSuccessfulMessageChangePassword());
+		verifyTrue(changePasswordPage.getTextSuccessfulMessageChangePassword());
 	
 		changePasswordPage.clickToCloseSuccessMessageChangePw();
 		sleepInSecond(2);
@@ -137,7 +137,7 @@ public class User_03_Customer_Info extends BaseTest {
 		loginPage.inputToUsername(email);
 		loginPage.inputToPassword(password);
 		loginPage.clickToLoginButton();
-		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
+		verifyEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
 				"Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
 		
 		loginPage.inputToPassword(newPw);

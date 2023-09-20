@@ -3,6 +3,8 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	private WebDriver driver;
+	protected final Log log;
+
+	protected BaseTest() {
+		log = LogFactory.getLog(getClass());
+	}
 
 	protected WebDriver getBrowserDriver(String browserName) {
 
@@ -26,13 +33,15 @@ public class BaseTest {
 			// headless firefox
 		} else if (browserName.equals("h_firefox")) {
 			if (GlobalConstants.OS_NAME.contains("Mac OS")) {
-				System.setProperty("webdriver.gecko.driver", GlobalConstants.PROJECT_PATH + "/browserDrivers/geckodriver");
+				System.setProperty("webdriver.gecko.driver",
+						GlobalConstants.PROJECT_PATH + "/browserDrivers/geckodriver");
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless");
 				options.addArguments("window-size=1920×1080");
 				driver = new FirefoxDriver(options);
 			} else {
-				System.setProperty("webdriver.gecko.driver", GlobalConstants.PROJECT_PATH + "\\browserDrivers\\geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver",
+						GlobalConstants.PROJECT_PATH + "\\browserDrivers\\geckodriver.exe");
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless");
 				options.addArguments("window-size=1920×1080");
@@ -50,7 +59,8 @@ public class BaseTest {
 				options.addArguments("window-size=1920×1080");
 				driver = new ChromeDriver(options);
 			} else {
-				System.setProperty("webdriver.chrome.driver", GlobalConstants.PROJECT_PATH + "\\browserDrivers\\\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",
+						GlobalConstants.PROJECT_PATH + "\\browserDrivers\\\\chromedriver.exe");
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("--headless");
 				options.addArguments("window-size=1920×1080");
@@ -82,17 +92,17 @@ public class BaseTest {
 		}
 		return url;
 	}
-	
+
 	protected boolean verifyTrue(boolean condition) {
 		boolean status = true;
 		try {
 			Assert.assertTrue(condition);
-			System.out.println("---------------------- Passed -----------------------");
+			log.info("---------------------- Passed -----------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
-			System.out.println("---------------------- Failed -----------------------");
+			log.info("---------------------- Failed -----------------------");
 		}
 		return status;
 	}
@@ -101,12 +111,12 @@ public class BaseTest {
 		boolean status = true;
 		try {
 			Assert.assertFalse(condition);
-			System.out.println("---------------------- Passed -----------------------");
+			log.info("---------------------- Passed -----------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
-			System.out.println("---------------------- Failed -----------------------");
+			log.info("---------------------- Failed -----------------------");
 		}
 		return status;
 	}
@@ -115,12 +125,12 @@ public class BaseTest {
 		boolean status = true;
 		try {
 			Assert.assertEquals(actual, expected);
-			System.out.println("---------------------- Passed -----------------------");
+			log.info("---------------------- Passed -----------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
-			System.out.println("---------------------- Failed -----------------------");
+			log.info("---------------------- Failed -----------------------");
 		}
 		return status;
 	}

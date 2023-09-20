@@ -49,11 +49,11 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 
 		System.out.println("Register_01 - Step03: Verify error message");
-		Assert.assertEquals(registerPage.getErrorMessageAtFirstnameTextbox(), "First name is required.");
-		Assert.assertEquals(registerPage.getErrorMessageAtLastNameTextbox(), "Last name is required.");
-		Assert.assertEquals(registerPage.getErrorMessageAtEmailTextbox(), "Email is required.");
-		Assert.assertEquals(registerPage.getErrorMessageAtPasswordTextbox(), "Password is required.");
-		Assert.assertEquals(registerPage.getErrorMessageAtConfirmPasswordTextbox(), "Password is required.");
+		verifyEquals(registerPage.getErrorMessageAtFirstnameTextbox(), "First name is required.");
+		verifyEquals(registerPage.getErrorMessageAtLastNameTextbox(), "Last name is required.");
+		verifyEquals(registerPage.getErrorMessageAtEmailTextbox(), "Email is required.");
+		verifyEquals(registerPage.getErrorMessageAtPasswordTextbox(), "Password is required.");
+		verifyEquals(registerPage.getErrorMessageAtConfirmPasswordTextbox(), "Password is required.");
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 
 		System.out.println("Register_02 - Step04: Verify Email invalid");
-		Assert.assertEquals(registerPage.getErrorMessageAtEmailTextbox(), "Wrong email");
+		verifyEquals(registerPage.getErrorMessageAtEmailTextbox(), "Wrong email");
 	}
 
 	@Test
@@ -95,7 +95,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 		
 		System.out.println("Register_03 - Step04: Verify success message displayed");
-		Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+		verifyEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
 	
 //		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {
 //			homePage.clickToLogoutLink();
@@ -122,7 +122,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 		
 		System.out.println("Register_04 - Step04: Verify Email invalid");
-		Assert.assertEquals(registerPage.getErrorExistingEmailMessage(), "The specified email already exists");
+		verifyEquals(registerPage.getErrorExistingEmailMessage(), "The specified email already exists");
 		
 	}
 
@@ -144,7 +144,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 		
 		System.out.println("Register_05 - Step04: Verify error message password");
-		Assert.assertEquals(registerPage.getErrorMessageAtPasswordTextbox(), "Password must meet the following rules:\n"
+		verifyEquals(registerPage.getErrorMessageAtPasswordTextbox(), "Password must meet the following rules:\n"
 				+ "must have at least 6 characters");
 	}
 
@@ -166,7 +166,7 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.clickToRegisterButton();
 		
 		System.out.println("Register_06 - Step04: Verify error message password");
-		Assert.assertEquals(registerPage.getErrorMessageAtConfirmPasswordTextbox(), "The password and confirmation password do not match.");
+		verifyEquals(registerPage.getErrorMessageAtConfirmPasswordTextbox(), "The password and confirmation password do not match.");
 	}
 
 	@AfterClass
