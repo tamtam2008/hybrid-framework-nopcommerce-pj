@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -79,6 +81,48 @@ public class BaseTest {
 			break;
 		}
 		return url;
+	}
+	
+	protected boolean verifyTrue(boolean condition) {
+		boolean status = true;
+		try {
+			Assert.assertTrue(condition);
+			System.out.println("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			System.out.println("---------------------- Failed -----------------------");
+		}
+		return status;
+	}
+
+	protected boolean verifyFalse(boolean condition) {
+		boolean status = true;
+		try {
+			Assert.assertFalse(condition);
+			System.out.println("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			System.out.println("---------------------- Failed -----------------------");
+		}
+		return status;
+	}
+
+	protected boolean verifyEquals(Object actual, Object expected) {
+		boolean status = true;
+		try {
+			Assert.assertEquals(actual, expected);
+			System.out.println("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			System.out.println("---------------------- Failed -----------------------");
+		}
+		return status;
 	}
 
 	public int randomFakeNumber() {

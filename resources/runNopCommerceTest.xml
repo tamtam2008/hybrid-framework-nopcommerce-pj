@@ -9,6 +9,11 @@
     </classes>
   </test>-->
   
+  <listeners>
+  	<listener class-name="commons.MethodListener"/>
+  </listeners>
+  
+  <!-- <parameter name="evironment" value="dev"/>-->
   <test name="Run on Firefox">
   	<parameter name="browser" value="firefox"/>
     <classes>
