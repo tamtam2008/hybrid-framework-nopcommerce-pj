@@ -1,20 +1,34 @@
-[2023-09-20 12:58:08,722] ---------------------- Passed -----------------------
-[2023-09-20 12:58:09,171] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,155] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,197] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,259] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,354] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,416] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,513] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,575] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,633] ---------------------- Passed -----------------------
-[2023-09-20 12:58:11,695] ---------------------- Passed -----------------------
-[2023-09-20 12:58:12,136] ---------------------- Passed -----------------------
-[2023-09-20 12:58:14,622] ---------------------- Passed -----------------------
-[2023-09-20 12:58:14,666] ---------------------- Passed -----------------------
-[2023-09-20 12:58:14,730] ---------------------- Passed -----------------------
-[2023-09-20 12:58:14,730] ---------------------- Passed -----------------------
-[2023-09-20 12:58:14,744] ---------------------- Passed -----------------------
-[2023-09-20 12:58:15,167] ---------------------- Failed -----------------------
-[2023-09-20 12:58:15,857] ---------------------- Passed -----------------------
-[2023-09-20 12:58:19,730] ---------------------- Passed -----------------------
+[2023-09-21 14:00:05,206] Advanced Search_Step01: Enter parent categories >> enter
+[2023-09-21 14:00:06,732] Advanced Search_Step02: Tick Advanced checkbox and select categories dropdown
+[2023-09-21 14:00:07,327] Advanced Search_Step03: Click advanced search
+[2023-09-21 14:00:08,329] Advanced Search_Step04: Verify message no result found
+[2023-09-21 14:00:08,397] ---------------------- Passed -----------------------
+[2023-09-21 14:00:08,400] Advanced Search_Step01: Enter parent categories >> enter
+[2023-09-21 14:00:08,953] Advanced Search_Step02: Tick Advanced checkbox and select categories dropdown
+[2023-09-21 14:00:09,819] Advanced Search_Step03: Click advanced search
+[2023-09-21 14:00:10,457] Advanced Search_Step04: Verify message no result found
+[2023-09-21 14:00:10,526] ---------------------- Passed -----------------------
+[2023-09-21 14:00:10,528] Advanced Search_Step01: Enter parent categories >> enter
+[2023-09-21 14:00:11,096] Advanced Search_Step02: Tick Advanced checkbox and select categories, incorrect manufacture
+[2023-09-21 14:00:12,248] Advanced Search_Step03: Click advanced search
+[2023-09-21 14:00:12,759] Advanced Search_Step04: Verify message no result found
+[2023-09-21 14:00:12,826] ---------------------- Passed -----------------------
+[2023-09-21 14:00:12,827] Advanced Search_Step01: Enter parent categories >> enter
+[2023-09-21 14:00:13,500] Advanced Search_Step02: Tick Advanced checkbox and select categories, correct manufacture
+[2023-09-21 14:00:14,661] Advanced Search_Step03: Click advanced search
+[2023-09-21 14:00:15,413] Advanced Search_Step04: Verify item displayed
+[2023-09-21 14:00:15,486] ---------------------- Passed -----------------------
+[2023-09-21 14:00:15,487] Search_Step01: Enter empty data in the searching bar >> enter
+[2023-09-21 14:00:16,041] Search_Step02: Verify error message
+[2023-09-21 14:00:16,107] ---------------------- Passed -----------------------
+[2023-09-21 14:00:16,109] Search_Step01: Enter data not exist on searching >> enter
+[2023-09-21 14:00:16,655] Search_Step02: Verify error message
+[2023-09-21 14:00:16,725] ---------------------- Passed -----------------------
+[2023-09-21 14:00:17,937] Search_Step01: Enter product name >> enter
+[2023-09-21 14:00:19,210] Search_Step02: Verify the item product displayed
+[2023-09-21 14:00:19,282] ---------------------- Passed -----------------------
+[2023-09-21 14:00:19,344] ---------------------- Passed -----------------------
+[2023-09-21 14:00:21,219] Search_Step01: Enter product name >> enter
+[2023-09-21 14:00:22,281] Search_Step02: Verify the item product displayed
+[2023-09-21 14:00:22,355] ---------------------- Passed -----------------------
+[2023-09-21 14:00:22,417] ---------------------- Passed -----------------------

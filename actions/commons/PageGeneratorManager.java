@@ -4,13 +4,17 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.nopCommerce.admin.AdminDashboardPageObject;
 import pageObjects.nopCommerce.admin.AdminLoginPageObject;
+import pageObjects.nopCommerce.portal.UserProductReviewsPageObject;
 import pageObjects.nopCommerce.portal.UserAddressInfoPageObject;
 import pageObjects.nopCommerce.portal.UserChangePasswordInfoPageObject;
+import pageObjects.nopCommerce.portal.UserSubCategoryPageObject;
 import pageObjects.nopCommerce.portal.UserCustomerInfoPageObject;
 import pageObjects.nopCommerce.portal.UserHomePageObject;
 import pageObjects.nopCommerce.portal.UserLoginPageObject;
 import pageObjects.nopCommerce.portal.UserMyProductReviewsPageObject;
+import pageObjects.nopCommerce.portal.UserProductDetailsPageObject;
 import pageObjects.nopCommerce.portal.UserRegisterPageObject;
+import pageObjects.nopCommerce.portal.UserSearchingPageObject;
 
 public class PageGeneratorManager {
 
@@ -50,5 +54,22 @@ public class PageGeneratorManager {
 		return new AdminDashboardPageObject(driver);
 		
 	}
+	
+	public static UserSubCategoryPageObject getSubCategoryPage(WebDriver driver) {
+		return new UserSubCategoryPageObject(driver);
+	} 
+	
+	public static UserProductDetailsPageObject getProductDetailsPage(WebDriver driver) {
+		return new UserProductDetailsPageObject(driver);
+	} 
+	
+	public static UserProductReviewsPageObject getProductReviewsPage(WebDriver driver) {
+		return new UserProductReviewsPageObject(driver);
+	} 
+	
+	public static UserSearchingPageObject getSearchingPage(WebDriver driver) {
+		return new UserSearchingPageObject(driver);
+	} 
+	
 	
 }

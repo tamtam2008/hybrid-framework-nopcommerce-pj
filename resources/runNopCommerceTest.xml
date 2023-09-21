@@ -21,7 +21,7 @@
   <test name="Run on Firefox">
   	<parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.nopcommerce.user.User_03_Customer_Info"/>
+      <class name="com.nopcommerce.user.User_04_Searching_And_Advanced_Search"/>
     </classes>
   </test>
   

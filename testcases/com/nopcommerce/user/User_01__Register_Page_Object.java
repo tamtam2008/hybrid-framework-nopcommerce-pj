@@ -11,10 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
 public class User_01__Register_Page_Object extends BaseTest {
@@ -42,13 +40,13 @@ public class User_01__Register_Page_Object extends BaseTest {
 	@Test
 	public void Register_01_Empty_Data() {
 
-		System.out.println("Register_01 - Step01: Click to Register link");
+		log.info("Register_01 - Step01: Click to Register link");
 		registerPage = homePage.clickToRegisterLink();
 		
-		System.out.println("Register_01 - Step02: Click to Register button");
+		log.info("Register_01 - Step02: Click to Register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Register_01 - Step03: Verify error message");
+		log.info("Register_01 - Step03: Verify error message");
 		verifyEquals(registerPage.getErrorMessageAtFirstnameTextbox(), "First name is required.");
 		verifyEquals(registerPage.getErrorMessageAtLastNameTextbox(), "Last name is required.");
 		verifyEquals(registerPage.getErrorMessageAtEmailTextbox(), "Email is required.");
@@ -59,10 +57,10 @@ public class User_01__Register_Page_Object extends BaseTest {
 	@Test
 	public void Register_02_Invalid_Email() {
 
-		System.out.println("Register_02 - Step01: Click to Register link");
+		log.info("Register_02 - Step01: Click to Register link");
 		registerPage = homePage.clickToRegisterLink();
 		
-		System.out.println("Register_02 - Step02: Input to require fields");
+		log.info("Register_02 - Step02: Input to require fields");
 		registerPage.clickToGender();
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastNameTextbox(lastName);
@@ -70,20 +68,20 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(password);
 		
-		System.out.println("Register_02 - Step03: Click to Register button");
+		log.info("Register_02 - Step03: Click to Register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Register_02 - Step04: Verify Email invalid");
+		log.info("Register_02 - Step04: Verify Email invalid");
 		verifyEquals(registerPage.getErrorMessageAtEmailTextbox(), "Wrong email");
 	}
 
 	@Test
-	public void Register_03_Success() {
+	public void Register_03_Register_Success() {
 		
-		System.out.println("Register_03 - Step01: Click to Register link");
+		log.info("Register_03 - Step01: Click to Register link");
 		registerPage = homePage.clickToRegisterLink();
 
-		System.out.println("Register_03 - Step02: Input to require fields");
+		log.info("Register_03 - Step02: Input to require fields");
 		registerPage.clickToGender();
 		registerPage.inputToFirstnameTextbox(firstName);
 		registerPage.inputToLastNameTextbox(lastName);
@@ -91,10 +89,10 @@ public class User_01__Register_Page_Object extends BaseTest {
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox(password);
 		
-		System.out.println("Register_03 - Step03: Click to Register button");
+		log.info("Register_03 - Step03: Click to Register button");
 		registerPage.clickToRegisterButton();
 		
-		System.out.println("Register_03 - Step04: Verify success message displayed");
+		log.info("Register_03 - Step04: Verify success message displayed");
 		verifyEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
 	
 //		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {

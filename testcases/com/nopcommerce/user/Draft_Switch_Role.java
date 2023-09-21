@@ -22,7 +22,7 @@ import pageObjects.nopCommerce.portal.UserLoginPageObject;
 import pageObjects.nopCommerce.portal.UserMyProductReviewsPageObject;
 import pageObjects.nopCommerce.portal.UserRegisterPageObject;
 
-public class Switch_Role extends BaseTest {
+public class Draft_Switch_Role extends BaseTest {
 
 //	@Parameters({"browser", "evironment"})
 	@Parameters("browser")

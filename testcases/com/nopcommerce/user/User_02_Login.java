@@ -34,7 +34,6 @@ public class User_02_Login extends BaseTest {
 		driver = getBrowserDriver(browserName);
 		
 		homePage = PageGeneratorManager.getUserHomePage(driver);
-//		homePage = new HomePageObject(driver);
 		driver.manage().window().maximize();
 		invalidEmail = "123456@$^^$$";
 		existingEmail = "tamnguyen" + randomFakeNumber() + ".vn@gmail.com";
@@ -58,37 +57,40 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_01_Empty_Data() {
-
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-
+		log.info("Login_Step02: Click to Login button");
 		loginPage.clickToLoginButton();
-
+		log.info("Login_Step03: Verify require messages");
 		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Please enter your email");
 	}
 
 	@Test
 	public void Login_02_Invalid_Email() {
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-
+		log.info("Login_Step02: Enter to Invalid Email and correct password");
 		loginPage.inputToUsername(invalidEmail);
 		loginPage.inputToPassword(password);
-
+		log.info("Login_Step03: Click to Login button");
 		loginPage.clickToLoginButton();
+		log.info("Login_Step04: Verify error message of email");
 		Assert.assertEquals(loginPage.getUsernameErrorMessage(), "Wrong email");
 	}
 
 	@Test
 	public void Login_03_With_Email_Not_Exist() {
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-
+		log.info("Login_Step02: Enter to Email not exist and correct password");
 		loginPage.inputToUsername(notFoundEmail);
 		loginPage.inputToPassword(password);
-
+		log.info("Login_Step03: Click to Login button");
 		loginPage.clickToLoginButton();
-
+		log.info("Login_Step04: Verify error message");
 		System.out.println(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent"));
 		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
-				"Login was unsuccessful. Please correct the errors and try again.No customer account found");
+				"1Login was unsuccessful. Please correct the errors and try again.No customer account found");
 
 	}
 
@@ -98,27 +100,28 @@ public class User_02_Login extends BaseTest {
 //		if (driver.findElement(By.xpath("//a[@class='ico-logout']")).isDisplayed()) {
 //			homePage.clickToLogoutLink();
 //		}
-
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-	
+		log.info("Login_Step02: Enter to Email existed and no password");
 		loginPage.inputToUsername(existingEmail);
+		log.info("Login_Step03: Click to Login button");
 		loginPage.clickToLoginButton();
 		sleepInSecond(2);
-
+		log.info("Login_Step04: Verify error message");
 		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
 				"Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
 	}
 
 	@Test
 	public void Login_05_With_Email_Existed_And_Wrong_Password() {
-
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-
+		log.info("Login_Step02: Enter to Email existed and wrong password");
 		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword("123459");
-
+		log.info("Login_Step03: Click to Login button");
 		loginPage.clickToLoginButton();
-
+		log.info("Login_Step04: Verify error message");
 		Assert.assertEquals(loginPage.getAttributeUnsuccessLoginErrorMessage("textContent").trim(),
 				"Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect");
 
@@ -126,15 +129,15 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_06_With_Email_Existed_And_Correct_Password() {
-
+		log.info("Login_Step01: Click to Login link");
 		loginPage = homePage.clickToLoginLink();
-
+		log.info("Login_Step02: Enter to Email existed and correct password ");
 		loginPage.inputToUsername(existingEmail);
 		loginPage.inputToPassword(password);
-
+		log.info("Login_Step03: Click to Login button");
 		homePage =loginPage.clickToLoginButton();
 		sleepInSecond(3);
-
+		log.info("Login_Step04: Verify success message");
 		Assert.assertEquals(driver.getTitle(), "nopCommerce demo store");
 		Assert.assertTrue(homePage.isMyAccountLinkDisplay());
 	}

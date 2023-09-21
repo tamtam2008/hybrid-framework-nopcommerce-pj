@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 
+
 public class UserMyProductReviewsPageObject extends BasePage {
 	
 	private WebDriver driver;
@@ -11,4 +12,5 @@ public class UserMyProductReviewsPageObject extends BasePage {
 	public UserMyProductReviewsPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	
 }

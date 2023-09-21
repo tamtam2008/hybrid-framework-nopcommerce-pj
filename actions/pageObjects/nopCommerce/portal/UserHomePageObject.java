@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import pageUIs.nopCommerce.user.HomePageUI;
+import pageUIs.nopCommerce.user.UserSubCategoryPageUI;
 
 public class UserHomePageObject extends BasePage {
 
@@ -42,10 +43,16 @@ public class UserHomePageObject extends BasePage {
 		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 
-//	public String getTitleHomepage() {
-//		return getTitle(driver);
-//	}
+	public void hoverToMenuHeader(String nameMenu) {
+		waitForElementClickable(driver, HomePageUI.MENU_HEADER, nameMenu);
+		hoverMouseToElement(driver, HomePageUI.MENU_HEADER, nameMenu);
 
+	}
 
+	public UserSubCategoryPageObject clickToSubCategory(String nameSubMenu) {
+		waitForElementVisible(driver, HomePageUI.SUB_MENU_HEADER,nameSubMenu);
+		clickToElement(driver, HomePageUI.SUB_MENU_HEADER,nameSubMenu);
+		return PageGeneratorManager.getSubCategoryPage(driver);
+	}
 
 }

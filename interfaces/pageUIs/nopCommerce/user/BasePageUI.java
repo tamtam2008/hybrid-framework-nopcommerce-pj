@@ -11,4 +11,8 @@ public class BasePageUI {
 	
 	public static final String LOGOUT_LINK_USER = "//a[@class='ico-logout']";
 	public static final String LOGOUT_LINK_ADMIN = "//div[@id='navbarText']//a[text()='Logout']";
+	
+	public static final String SEARCH_FIELD = "css=input#small-searchterms";
+	public static final String SEARCH_BUTTON_ON_SEARCHING_BAR = "//form[@id='small-search-box-form']//button[@type='submit']";
+	
 }

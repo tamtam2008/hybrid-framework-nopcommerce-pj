@@ -24,6 +24,7 @@ import pageObjects.nopCommerce.portal.UserChangePasswordInfoPageObject;
 import pageObjects.nopCommerce.portal.UserCustomerInfoPageObject;
 import pageObjects.nopCommerce.portal.UserHomePageObject;
 import pageObjects.nopCommerce.portal.UserMyProductReviewsPageObject;
+import pageObjects.nopCommerce.portal.UserSearchingPageObject;
 import pageUIs.nopCommerce.user.BasePageUI;
 
 public class BasePage {
@@ -329,6 +330,11 @@ public class BasePage {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(getWebElement(driver, locatorType)).perform();
 	}
+	
+	public void hoverMouseToElement(WebDriver driver, String locatorType, String... dynamicValues) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues))).perform();
+	}
 
 	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key) {
 		Actions actions = new Actions(driver);
@@ -492,6 +498,20 @@ public class BasePage {
 //		
 //	}
 
+	private long longTimeout = 30;
+	private long shortTimeout = 5;
+
+	public void sleepInSecond(long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/*
+	 * NOPCOMMERCE PJ
+	 */
 	public UserAddressInfoPageObject openAddressPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.ADDRESS_LINK);
 		clickToElement(driver, BasePageUI.ADDRESS_LINK);
@@ -549,14 +569,16 @@ public class BasePage {
 		return PageGeneratorManager.getAdminLoginPage(driver);
 	}
 
-	private long longTimeout = 30;
-	private long shortTimeout = 5;
-
-	public void sleepInSecond(long timeInSecond) {
-		try {
-			Thread.sleep(timeInSecond * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	//searching
+	public void enterDataOnSearchingBar(WebDriver driver, String valueSearch) {
+		waitForElementVisible(driver, BasePageUI.SEARCH_FIELD);
+		sendkeyToElement(driver, BasePageUI.SEARCH_FIELD, valueSearch);
 	}
+	
+	public UserSearchingPageObject clickSearchButtonOnSearchingBar(WebDriver driver) {
+		waitForElementVisible(driver, BasePageUI.SEARCH_BUTTON_ON_SEARCHING_BAR);
+		clickToElement(driver, BasePageUI.SEARCH_BUTTON_ON_SEARCHING_BAR);
+		return PageGeneratorManager.getSearchingPage(driver);
+	}
+	
 }

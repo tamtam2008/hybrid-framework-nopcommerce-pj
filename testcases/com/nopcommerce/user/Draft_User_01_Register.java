@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class User_01_Register {
+public class Draft_User_01_Register {
 	WebDriver driver;
 	String emailAddress;
 	String projectPath = System.getProperty("user.dir");
