@@ -2,11 +2,11 @@ package pageUIs.nopCommerce.user;
 
 import org.openqa.selenium.WebDriver;
 
-public class LoginPageUI {
+public class UserLoginPageUI {
 
 	private WebDriver driver;
 
-	public LoginPageUI(WebDriver driver) {
+	public UserLoginPageUI(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}

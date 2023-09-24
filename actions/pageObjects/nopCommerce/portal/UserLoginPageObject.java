@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
-import pageUIs.nopCommerce.user.LoginPageUI;
+import pageUIs.nopCommerce.user.UserLoginPageUI;
 
 public class UserLoginPageObject extends BasePage {
 	
@@ -16,29 +16,29 @@ public class UserLoginPageObject extends BasePage {
 	}
 
 	public UserHomePageObject clickToLoginButton() {
-		waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
-		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+		waitForElementVisible(driver, UserLoginPageUI.LOGIN_BUTTON);
+		clickToElement(driver, UserLoginPageUI.LOGIN_BUTTON);
 		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
 	public String getUsernameErrorMessage() {
-		waitForElementVisible(driver, LoginPageUI.USERNAME_ERROR_MESSAGE);
-		return getElementText(driver, LoginPageUI.USERNAME_ERROR_MESSAGE);
+		waitForElementVisible(driver, UserLoginPageUI.USERNAME_ERROR_MESSAGE);
+		return getElementText(driver, UserLoginPageUI.USERNAME_ERROR_MESSAGE);
 	}
 
 	public void inputToUsername(String username) {
-		sendkeyToElement(driver, LoginPageUI.USERNAME_TEXTBOX, username);
+		sendkeyToElement(driver, UserLoginPageUI.USERNAME_TEXTBOX, username);
 		
 	}
 
 	public void inputToPassword(String password) {
-		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
+		sendkeyToElement(driver, UserLoginPageUI.PASSWORD_TEXTBOX, password);
 		
 	}
 
 	public String getAttributeUnsuccessLoginErrorMessage(String textAttribute) {
-		waitForElementVisible(driver, LoginPageUI.UNSUCESS_LOGIN_ERROR_MESSAGE);
-		return getElementAttribute(driver, LoginPageUI.UNSUCESS_LOGIN_ERROR_MESSAGE, textAttribute);
+		waitForElementVisible(driver, UserLoginPageUI.UNSUCESS_LOGIN_ERROR_MESSAGE);
+		return getElementAttribute(driver, UserLoginPageUI.UNSUCESS_LOGIN_ERROR_MESSAGE, textAttribute);
 		
 	}
 	

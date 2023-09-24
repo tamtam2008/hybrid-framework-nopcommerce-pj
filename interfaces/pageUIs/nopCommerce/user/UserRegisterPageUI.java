@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce.user;
 
-public class RegisterPageUI {
+public class UserRegisterPageUI {
 
 	public static final String GENDER_CHECKBOX = "//input[@id='gender-female']"; 
 	public static final String FIRST_NAME_TEXTBOX = "//input[@id='FirstName']"; 

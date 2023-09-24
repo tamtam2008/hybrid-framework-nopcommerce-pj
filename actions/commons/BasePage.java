@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.nopCommerce.admin.AdminLoginPageObject;
+import pageObjects.nopCommerce.portal.UserProductListPagesObject;
 import pageObjects.nopCommerce.portal.UserAddressInfoPageObject;
 import pageObjects.nopCommerce.portal.UserChangePasswordInfoPageObject;
 import pageObjects.nopCommerce.portal.UserCustomerInfoPageObject;
@@ -579,6 +580,17 @@ public class BasePage {
 		waitForElementVisible(driver, BasePageUI.SEARCH_BUTTON_ON_SEARCHING_BAR);
 		clickToElement(driver, BasePageUI.SEARCH_BUTTON_ON_SEARCHING_BAR);
 		return PageGeneratorManager.getSearchingPage(driver);
+	}
+	
+	public void hoverMenuHeader(WebDriver driver, String nameMenu) {
+		waitForElementVisible(driver, BasePageUI.NAME_MENU_HEADER, nameMenu);
+		hoverMouseToElement(driver, BasePageUI.NAME_MENU_HEADER, nameMenu);
+	}
+	
+	public UserProductListPagesObject clickSubCategoryMenu(WebDriver driver, String subCategoryMenu) {
+		waitForElementVisible(driver, BasePageUI.NAME_SUB_MENU_HEADER, subCategoryMenu);
+		clickToElement(driver, BasePageUI.NAME_SUB_MENU_HEADER, subCategoryMenu);
+		return PageGeneratorManager.getProductListPages(driver);
 	}
 	
 }

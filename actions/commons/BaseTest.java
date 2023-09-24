@@ -80,6 +80,28 @@ public class BaseTest {
 		return driver;
 	}
 
+//	protected WebDriver getBrowserDriver(String browserName, String appUrl) {
+//
+//		if (browserName.equals("firefox")) {
+//			WebDriverManager.firefoxdriver().setup();
+//			driver = new FirefoxDriver();
+//
+//		} else if (browserName.equals("chrome")) {
+//			WebDriverManager.chromedriver().setup();
+//			driver = new ChromeDriver();
+//
+//		} else {
+//			throw new RuntimeException("Browser name invalid");
+//		}
+//		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+//		driver.get(GlobalConstants.PORTAL_PAGE_URL);
+//		return driver;
+//	}
+
+	public WebDriver getDriverInstance() {
+		return this.driver;
+	} 
+	
 	private String getEnviromentUrl(String enviromentName) {
 		String url = null;
 		switch (enviromentName) {
@@ -138,5 +160,14 @@ public class BaseTest {
 	public int randomFakeNumber() {
 		Random rand = new Random();
 		return rand.nextInt(9999);
+	}
+	
+	public void sleepInSecond(long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

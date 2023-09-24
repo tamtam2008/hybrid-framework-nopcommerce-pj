@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce.user;
 
-public class ProductReviewsPageUI {
+public class UserProductReviewsPageUI {
 
 	public static final String INPUT_TITLE_REVIEW_TEXTBOX = "css=input#AddProductReview_Title";
 	public static final String INPUT_DESCRIPTION_REVIEW_TEXTBOX = "css=textarea#AddProductReview_ReviewText";

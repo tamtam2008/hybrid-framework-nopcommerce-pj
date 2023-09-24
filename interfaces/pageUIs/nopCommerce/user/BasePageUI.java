@@ -15,4 +15,8 @@ public class BasePageUI {
 	public static final String SEARCH_FIELD = "css=input#small-searchterms";
 	public static final String SEARCH_BUTTON_ON_SEARCHING_BAR = "//form[@id='small-search-box-form']//button[@type='submit']";
 	
+	public static final String NAME_MENU_HEADER= "//ul[@class='top-menu notmobile']//a[contains(text(),'%s')]";
+	public static final String NAME_SUB_MENU_HEADER= "//ul[@class='top-menu notmobile']//ul[@class='sublist first-level']//a[contains(text(),'%s')]";
+	
+	
 }

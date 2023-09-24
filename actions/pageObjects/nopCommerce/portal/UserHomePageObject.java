@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
-import pageUIs.nopCommerce.user.HomePageUI;
+import pageUIs.nopCommerce.user.UserHomePageUI;
 import pageUIs.nopCommerce.user.UserSubCategoryPageUI;
 
 public class UserHomePageObject extends BasePage {
@@ -16,42 +16,42 @@ public class UserHomePageObject extends BasePage {
 	}
 	
 	public UserRegisterPageObject clickToRegisterLink() {
-		clickToElement(driver, HomePageUI.REGISTER_LINK);
+		clickToElement(driver, UserHomePageUI.REGISTER_LINK);
 		return PageGeneratorManager.getUserRegisterPage(driver);
 	}
 
 	public UserLoginPageObject clickToLoginLink() {
-		waitForElementVisible(driver, HomePageUI.LOGIN_LINK);
-		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		waitForElementVisible(driver, UserHomePageUI.LOGIN_LINK);
+		clickToElement(driver, UserHomePageUI.LOGIN_LINK);
 		return PageGeneratorManager.getUserLoginPage(driver);
 		
 	}
 
 	public void clickToLogoutLink() {
-		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
-		clickToElement(driver, HomePageUI.LOGOUT_LINK);
+		waitForElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
+		clickToElement(driver, UserHomePageUI.LOGOUT_LINK);
 	}
 
 	public boolean isMyAccountLinkDisplay() {
-		waitForElementVisible(driver, HomePageUI.MYACCOUNT_LINK);
-		return isElementDisplayed(driver, HomePageUI.MYACCOUNT_LINK);
+		waitForElementVisible(driver, UserHomePageUI.MYACCOUNT_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.MYACCOUNT_LINK);
 	}
 
 	public UserCustomerInfoPageObject clickToMyAccountLink() {
-		waitForElementVisible(driver, HomePageUI.MYACCOUNT_LINK);
-		clickToElement(driver, HomePageUI.MYACCOUNT_LINK);
+		waitForElementVisible(driver, UserHomePageUI.MYACCOUNT_LINK);
+		clickToElement(driver, UserHomePageUI.MYACCOUNT_LINK);
 		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 
 	public void hoverToMenuHeader(String nameMenu) {
-		waitForElementClickable(driver, HomePageUI.MENU_HEADER, nameMenu);
-		hoverMouseToElement(driver, HomePageUI.MENU_HEADER, nameMenu);
+		waitForElementClickable(driver, UserHomePageUI.MENU_HEADER, nameMenu);
+		hoverMouseToElement(driver, UserHomePageUI.MENU_HEADER, nameMenu);
 
 	}
 
 	public UserSubCategoryPageObject clickToSubCategory(String nameSubMenu) {
-		waitForElementVisible(driver, HomePageUI.SUB_MENU_HEADER,nameSubMenu);
-		clickToElement(driver, HomePageUI.SUB_MENU_HEADER,nameSubMenu);
+		waitForElementVisible(driver, UserHomePageUI.SUB_MENU_HEADER,nameSubMenu);
+		clickToElement(driver, UserHomePageUI.SUB_MENU_HEADER,nameSubMenu);
 		return PageGeneratorManager.getSubCategoryPage(driver);
 	}
 

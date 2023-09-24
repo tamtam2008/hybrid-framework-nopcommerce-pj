@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce.user;
 
-public class AddressInfoPageUI {
+public class UserAddressInfoPageUI {
 
 	public static final String ADDRESS_INFO_HEADER = "//div[@class='page-title']/h1[text()='My account - Addresses']";
 	public static final String NEW_ADDRESS_BUTTON = "//div[@class='page-body']//button[@type='button']";

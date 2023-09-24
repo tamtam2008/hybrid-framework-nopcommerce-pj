@@ -3,7 +3,7 @@ package pageObjects.nopCommerce.portal;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.nopCommerce.user.CustomerInfoUI;
+import pageUIs.nopCommerce.user.UserCustomerInfoUI;
 
 public class UserCustomerInfoPageObject extends BasePage {
 
@@ -15,101 +15,101 @@ public class UserCustomerInfoPageObject extends BasePage {
 	}
 
 	public boolean isCustomerInfoIsDisplayed() {
-		waitForElementVisible(driver, CustomerInfoUI.CUSTOMER_INFO_HEADER);
-		return isElementDisplayed(driver, CustomerInfoUI.CUSTOMER_INFO_HEADER);
+		waitForElementVisible(driver, UserCustomerInfoUI.CUSTOMER_INFO_HEADER);
+		return isElementDisplayed(driver, UserCustomerInfoUI.CUSTOMER_INFO_HEADER);
 	}
 
 	public void clickToGenderCheckboxCustomerInfo() {
-		clickToElement(driver, CustomerInfoUI.GENDER_CHECKBOX);
+		clickToElement(driver, UserCustomerInfoUI.GENDER_CHECKBOX);
 		
 	}
 
 	public void inputToFirstNameCustomerInfo(String firstName) {
-		sendkeyToElement(driver, CustomerInfoUI.FIRST_NAME_FIELD, firstName);
+		sendkeyToElement(driver, UserCustomerInfoUI.FIRST_NAME_FIELD, firstName);
 		
 	}
 
 	public void inputToLastNameCustomerInfo(String lastName) {
-		sendkeyToElement(driver, CustomerInfoUI.LAST_NAME_FIELD, lastName);
+		sendkeyToElement(driver, UserCustomerInfoUI.LAST_NAME_FIELD, lastName);
 		
 	}
 
 	public void selectToDayOfBirthCustomerInfo(String dayOfBirth) {
-		waitForElementVisible(driver, CustomerInfoUI.DAY_OF_BIRTH);
-		selectItemInDefaultDropdown(driver, CustomerInfoUI.DAY_OF_BIRTH, dayOfBirth);
+		waitForElementVisible(driver, UserCustomerInfoUI.DAY_OF_BIRTH);
+		selectItemInDefaultDropdown(driver, UserCustomerInfoUI.DAY_OF_BIRTH, dayOfBirth);
 		
 	}
 
 	public void selectToMonthOfBirthCustomerInfo(String monthOfBirth) {
-		waitForElementVisible(driver, CustomerInfoUI.MONTH_OF_BIRTH);
-		selectByVisibleTextItemInDefaultDropdown(driver, CustomerInfoUI.MONTH_OF_BIRTH, monthOfBirth);
+		waitForElementVisible(driver, UserCustomerInfoUI.MONTH_OF_BIRTH);
+		selectByVisibleTextItemInDefaultDropdown(driver, UserCustomerInfoUI.MONTH_OF_BIRTH, monthOfBirth);
 		
 	}
 
 	public void selectToYearOfBirthCustomerInfo(String yearOfBirth) {
-		selectByVisibleTextItemInDefaultDropdown(driver, CustomerInfoUI.YEAR_OF_BIRTH, yearOfBirth);
+		selectByVisibleTextItemInDefaultDropdown(driver, UserCustomerInfoUI.YEAR_OF_BIRTH, yearOfBirth);
 		
 	}
 
 	public void inputToEmailCustomerInfo(String email) {
-		sendkeyToElement(driver, CustomerInfoUI.EMAIL_FIELD, email);
+		sendkeyToElement(driver, UserCustomerInfoUI.EMAIL_FIELD, email);
 		
 	}
 
 	public void inputToCompanyNameCustomerInfo(String companyName) {
-		sendkeyToElement(driver, CustomerInfoUI.COMPANY_NAME_FIELD, companyName);
+		sendkeyToElement(driver, UserCustomerInfoUI.COMPANY_NAME_FIELD, companyName);
 		
 	}
 
 	public void clickToSaveButton() {
-		waitForElementVisible(driver, CustomerInfoUI.SAVE_BUTTON);
-		clickToElement(driver, CustomerInfoUI.SAVE_BUTTON);
+		waitForElementVisible(driver, UserCustomerInfoUI.SAVE_BUTTON);
+		clickToElement(driver, UserCustomerInfoUI.SAVE_BUTTON);
 		
 	}
 
 	public boolean isSuccessMessageDisplay() {
-		waitForElementVisible(driver, CustomerInfoUI.SUCCESS_MESSAGE_UPDATED);
-		return isElementDisplayed(driver,CustomerInfoUI.SUCCESS_MESSAGE_UPDATED);
+		waitForElementVisible(driver, UserCustomerInfoUI.SUCCESS_MESSAGE_UPDATED);
+		return isElementDisplayed(driver,UserCustomerInfoUI.SUCCESS_MESSAGE_UPDATED);
 	}
 
 	public boolean isGenderCheckboxSelected() {
-		waitForElementVisible(driver, CustomerInfoUI.GENDER_CHECKBOX);
-		return isElementSelected(driver, CustomerInfoUI.GENDER_CHECKBOX);
+		waitForElementVisible(driver, UserCustomerInfoUI.GENDER_CHECKBOX);
+		return isElementSelected(driver, UserCustomerInfoUI.GENDER_CHECKBOX);
 	}
 
 	public String getFirstNameCustomerInfo(String value) {
-		waitForElementVisible(driver, CustomerInfoUI.FIRST_NAME_FIELD);
-		return getElementAttribute(driver, CustomerInfoUI.FIRST_NAME_FIELD, "value");
+		waitForElementVisible(driver, UserCustomerInfoUI.FIRST_NAME_FIELD);
+		return getElementAttribute(driver, UserCustomerInfoUI.FIRST_NAME_FIELD, "value");
 	}
 
 	public String getLastNameCustomerInfo(String value) {
-		waitForElementVisible(driver, CustomerInfoUI.LAST_NAME_FIELD);
-		return getElementAttribute(driver, CustomerInfoUI.LAST_NAME_FIELD, "value");
+		waitForElementVisible(driver, UserCustomerInfoUI.LAST_NAME_FIELD);
+		return getElementAttribute(driver, UserCustomerInfoUI.LAST_NAME_FIELD, "value");
 	}
 
 	public String getDayOfBirthCustomerInfo(String value) {
-		waitForElementVisible(driver, CustomerInfoUI.DAY_OF_BIRTH);
-		return getElementAttribute(driver, CustomerInfoUI.DAY_OF_BIRTH, "value");
+		waitForElementVisible(driver, UserCustomerInfoUI.DAY_OF_BIRTH);
+		return getElementAttribute(driver, UserCustomerInfoUI.DAY_OF_BIRTH, "value");
 	}
 
 	public Boolean isMonthOfBirthCustomerInfoDisplayed() {
-		waitForElementVisible(driver, CustomerInfoUI.VERIFY_MONTH_OF_BIRTH);
-		return isElementDisplayed(driver, CustomerInfoUI.VERIFY_MONTH_OF_BIRTH);
+		waitForElementVisible(driver, UserCustomerInfoUI.VERIFY_MONTH_OF_BIRTH);
+		return isElementDisplayed(driver, UserCustomerInfoUI.VERIFY_MONTH_OF_BIRTH);
 	}
 
 	public Boolean isYearOfBirthCustomerInfoDisplayed() {
-		waitForElementVisible(driver, CustomerInfoUI.VERIFY_YEAR_OF_BIRTH);
-		return isElementDisplayed(driver, CustomerInfoUI.VERIFY_YEAR_OF_BIRTH);
+		waitForElementVisible(driver, UserCustomerInfoUI.VERIFY_YEAR_OF_BIRTH);
+		return isElementDisplayed(driver, UserCustomerInfoUI.VERIFY_YEAR_OF_BIRTH);
 	}
 
 	public String getEmailCustomerInfo(String value) {
-		waitForElementVisible(driver, CustomerInfoUI.EMAIL_FIELD);
-		return getElementAttribute(driver, CustomerInfoUI.EMAIL_FIELD, "value");
+		waitForElementVisible(driver, UserCustomerInfoUI.EMAIL_FIELD);
+		return getElementAttribute(driver, UserCustomerInfoUI.EMAIL_FIELD, "value");
 	}
 
 	public String getCompanyNameCustomerInfo(String value) {
-		waitForElementVisible(driver, CustomerInfoUI.COMPANY_NAME_FIELD);
-		return getElementAttribute(driver, CustomerInfoUI.COMPANY_NAME_FIELD, "value");
+		waitForElementVisible(driver, UserCustomerInfoUI.COMPANY_NAME_FIELD);
+		return getElementAttribute(driver, UserCustomerInfoUI.COMPANY_NAME_FIELD, "value");
 	}
 	
 }

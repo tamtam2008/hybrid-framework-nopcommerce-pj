@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce.user;
 
-public class ChangePasswordPageUI {
+public class UserChangePasswordPageUI {
 
 	public static final String CHANGE_PASSWORD_HEADER = "//div[contains(@class,'change-password-page')]//h1[text()='My account - Change password']";
 	public static final String OLD_PASSWORD_TEXTBOX= "//input[@id='OldPassword']";
