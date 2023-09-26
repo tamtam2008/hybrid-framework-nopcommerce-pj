@@ -56,7 +56,10 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		userSearchingPage.clickSearchButtonOnSearchingBar(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,"Search_Step02: Verify error message");
+		
 		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
+
+		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("...No products were found that matched your criteria."));
 
 	}
 
