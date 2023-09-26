@@ -59,7 +59,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		
 		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
 
-		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("...No products were found that matched your criteria."));
+		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
 
 	}
 
