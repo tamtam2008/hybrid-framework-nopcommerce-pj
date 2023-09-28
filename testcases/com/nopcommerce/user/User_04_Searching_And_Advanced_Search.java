@@ -158,4 +158,5 @@ public class User_04_Searching_And_Advanced_Search extends BaseTest {
 	private UserHomePageObject homePage;
 	private UserSearchingPageObject userSearchingPage;
 	private String dataNotExist, productName1, productName2, parentCategories, categoryDropList;
+	
 }

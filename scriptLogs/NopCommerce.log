@@ -1210,3 +1210,45 @@
 [2023-09-26 23:01:27,384] ---------------------- Passed -----------------------
 =======
 >>>>>>> branch 'master' of https://github.com/tamtam2008/hybrid-framework-nopcommerce
+[2023-09-26 10:19:47,960] ---------------------- Passed -----------------------
+[2023-09-26 10:19:49,966] ---------------------- Passed -----------------------
+[2023-09-26 10:19:52,186] ---------------------- Passed -----------------------
+[2023-09-26 10:19:54,439] ---------------------- Passed -----------------------
+[2023-09-26 10:19:54,968] ---------------------- Passed -----------------------
+[2023-09-26 10:20:00,067] ---------------------- Passed -----------------------
+[2023-09-26 10:20:00,127] ---------------------- Passed -----------------------
+[2023-09-26 10:20:03,083] ---------------------- Passed -----------------------
+[2023-09-26 10:20:03,146] ---------------------- Passed -----------------------
+[2023-09-28 05:03:56,643] Login_Step01: Click to Login link
+[2023-09-28 05:03:57,405] Login_Step02: Enter to Email existed and correct password 
+[2023-09-28 05:03:57,513] Login_Step03: Click to Login button
+[2023-09-28 05:04:01,641] Login_Step04: Verify success message
+[2023-09-28 05:04:01,718] Search_Step01: Enter empty data in the searching bar >> enter
+[2023-09-28 05:04:02,423] Search_Step02: Verify error message
+[2023-09-28 05:06:46,394] Login_Step01: Click to Login link
+[2023-09-28 05:06:47,516] Login_Step02: Enter to Email existed and correct password 
+[2023-09-28 05:06:47,638] Login_Step03: Click to Login button
+[2023-09-28 05:06:51,562] Login_Step04: Verify success message
+[2023-09-28 05:06:51,637] Search_Step01: Enter empty data in the searching bar >> enter
+[2023-09-28 05:06:56,409] Search_Step02: Verify error message
+[2023-09-28 05:06:56,494] ---------------------- Passed -----------------------
+[2023-09-28 05:11:33,285] Login_Step01: Click to Login link
+[2023-09-28 05:11:34,653] Login_Step02: Enter to Email existed and correct password 
+[2023-09-28 05:11:34,770] Login_Step03: Click to Login button
+[2023-09-28 05:11:38,725] Login_Step04: Verify success message
+[2023-09-28 05:11:38,800] Search_Step01: Enter empty data in the searching bar >> enter
+[2023-09-28 05:11:42,305] Search_Step02: Verify error message
+[2023-09-28 05:11:42,371] ---------------------- Passed -----------------------
+[2023-09-28 05:16:42,117] Login_Step01: Click to Login link
+[2023-09-28 05:16:42,750] Login_Step02: Enter to Email existed and correct password 
+[2023-09-28 05:16:42,860] Login_Step03: Click to Login button
+[2023-09-28 05:16:47,029] Login_Step04: Verify success message
+[2023-09-28 05:17:56,787] Login_Step01: Click to Login link
+[2023-09-28 05:17:58,182] Login_Step02: Enter to Email existed and correct password 
+[2023-09-28 05:17:58,302] Login_Step03: Click to Login button
+[2023-09-28 05:18:02,063] Login_Step04: Verify success message
+[2023-09-28 05:21:54,859] Login_Step01: Click to Login link
+[2023-09-28 05:21:56,318] Login_Step02: Click to Login button
+[2023-09-28 05:21:56,600] Login_Step03: Verify require messages
+[2023-09-28 12:11:10,768] OS name = windows 10
+[2023-09-28 12:11:10,773] Driver instance name = firefoxdriver: firefox on windows (21456665-5808-4b4c-8e20-39c0cf67576c)

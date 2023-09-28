@@ -42,7 +42,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		userSearchingPage = homePage.clickSearchButtonOnSearchingBar(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,"Search_Step02: Verify error message");
-		verifyTrue(userSearchingPage.isErrorMessageWithEmptyDataDisplayed());
+		Assert.assertTrue(userSearchingPage.isErrorMessageWithEmptyDataDisplayed());
 	
 	}
 
@@ -59,7 +59,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		
 		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
 
-		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
+		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("!!!No products were found that matched your criteria."));
 
 	}
 
@@ -74,8 +74,8 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 
 		ExtentTestManager.getTest().log(Status.INFO,"Search_Step02: Verify the item product displayed");
 		userSearchingPage.scrollToBottomPage(driver);
-		verifyTrue(userSearchingPage.isItemsProductDisplayed("Lenovo IdeaCentre 600 All-in-One PC"));
-		verifyTrue(userSearchingPage.isItemsProductDisplayed("Lenovo Thinkpad X1 Carbon Laptop"));
+		Assert.assertTrue(userSearchingPage.isItemsProductDisplayed("Lenovo IdeaCentre 600 All-in-One PC"));
+		Assert.assertTrue(userSearchingPage.isItemsProductDisplayed("Lenovo Thinkpad X1 Carbon Laptop"));
 	}
 
 	@Test
@@ -89,8 +89,8 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 
 		ExtentTestManager.getTest().log(Status.INFO,"Search_Step02: Verify the item product displayed");
 		userSearchingPage.scrollToBottomPage(driver);
-		verifyTrue(userSearchingPage.isItemProductDisplayed("1"));
-		verifyTrue(userSearchingPage.isProductNameDisplayed());
+		Assert.assertTrue(userSearchingPage.isItemProductDisplayed("1"));
+		Assert.assertTrue(userSearchingPage.isProductNameDisplayed());
 	}
 
 	@Test
@@ -108,7 +108,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step03: Click advanced search");
 		userSearchingPage.clickToSearchAdvancedButton();
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step04: Verify message no result found");
-		verifyTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
+		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
 
 	}
 
@@ -126,7 +126,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step03: Click advanced search");
 		userSearchingPage.clickToSearchAdvancedButton();
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step04: Verify message no result found");
-		verifyTrue(userSearchingPage.isItemsProductDisplayed("Apple MacBook Pro 13-inch"));
+		Assert.assertTrue(userSearchingPage.isItemsProductDisplayed("Apple MacBook Pro 13-inch"));
 
 	}
 
@@ -145,7 +145,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step03: Click advanced search");
 		userSearchingPage.clickToSearchAdvancedButton();
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step04: Verify message no result found");
-		verifyTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
+		Assert.assertTrue(userSearchingPage.isErrorMessageDisplayed("No products were found that matched your criteria."));
 	}
 
 	@Test
@@ -163,7 +163,7 @@ public class ExtendReportV5_User_04_Searching_And_Advanced_Search2 extends BaseT
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step03: Click advanced search");
 		userSearchingPage.clickToSearchAdvancedButton();
 		ExtentTestManager.getTest().log(Status.INFO,"Advanced Search_Step04: Verify item displayed");
-		verifyTrue(userSearchingPage.isItemsProductDisplayed("Apple MacBook Pro 13-inch"));
+		Assert.assertTrue(userSearchingPage.isItemsProductDisplayed("Apple MacBook Pro 13-inch"));
 	}
 
 	@AfterClass
